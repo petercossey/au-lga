@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ * Code for the Australian LGA feature.
+ */
+
+include_once 'au_lga.features.inc';
+
+function au_lga_test() {
+  module_load_include('inc', 'au_lga', 'au_lga.import');
+  au_lga_import_lga();
+}
+
+/**
+ * Implements hook_menu().
+ */
+function au_lga_menu() {
+  $items = array();
+  $items['js/au_lga/geocode/%/%'] = array(
+    'page callback' => 'au_lga_geocode_callback',
+    'page arguments' => array(3, 4),
+    'access callback' => TRUE,
+    'file' => 'au_lga.js.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_js().
+ */
+function au_lga_js() {
+  return array(
+    'geocode' => array(
+      'callback' => 'au_lga_geocode_callback',
+      'page arguments' => array(),
+      'includes' => array(),
+      'dependencies' => array(),
+      'file' => 'au_lga.js.inc',
+      'bootstrap' => DRUPAL_BOOTSTRAP_CONFIGURATION,
+      //      'bootstrap' => DRUPAL_BOOTSTRAP_DATABASE,
+      'skip_hook_init' => TRUE,
+      'i18n' => FALSE,
+    ),
+  );
+}

@@ -1,0 +1,30 @@
+<?php
+/**
+ * @file.
+ * Install/uninstall functions for au_lga module.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function au_lga_requirements($phase) {
+  $items = array();
+
+  // Ensure translations don't break during installation.
+  $t = get_t();
+
+  geophp_load();
+  $items[] = array(
+    'title' => $t('Polygon::pointInPolygon method exists'),
+    'description' => $t('geoPHP module must provide Polygon::pointInPolygon method (update geoPHP library if needed)'),
+    'severity' => method_exists('Polygon', 'pointInPolygon') ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+  );
+
+  $items[] = array(
+    'title' => $t('dBase is enabled'),
+    'description' => $t('dBase PHP extension is required for importing LGAs data. See http://php.net/manual/en/book.dbase.php for details.'),
+    'severity' => function_exists('dbase_open') ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+  );
+
+  return $items;
+}
