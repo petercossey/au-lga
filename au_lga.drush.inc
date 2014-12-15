@@ -114,6 +114,7 @@ function au_lga_import_batch_op(&$context) {
     }
     else {
       $msg = 'Finished';
+      $context['finished'] = 1;
     }
   } while ($result != AU_LGA_EOF && $i < 25);
 
