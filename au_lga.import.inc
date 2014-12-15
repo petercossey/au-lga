@@ -137,7 +137,7 @@ function au_lga_delete_lga() {
  */
 function au_lga_open_data($fpos = NULL) {
   module_load_include('inc', 'au_lga', 'lib/ShapeFile');
-  $path = drupal_get_path('module', 'au_lga') . '/data/SLA11aAust.shp';
+  $path = drupal_get_path('module', 'au_lga') . '/data/LGA11aAust.shp';
   $options = array('noparts' => false);
   if ($fpos) {
     $options['fpos'] = $fpos;
