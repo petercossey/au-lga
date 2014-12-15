@@ -171,7 +171,7 @@ function au_lga_create_next_lga($shp, $states) {
       $node->comment = 0; // 0 = comments disabled, 1 = read only, 2 = read/write
 
       // Title and type.
-      $title_info = trim($dbf_info['SLA_NAME11']);
+      $title_info = trim($dbf_info['LGA_NAME11']);
       if (preg_match('/(.+?)\s*+\((.+?)\)\s*+(.*)?$/', $title_info, $matches)) {
         $node->title = trim($matches[1]);
         $node->field_au_lga_type[LANGUAGE_NONE][0]['value'] = trim($matches[2]);
@@ -184,9 +184,7 @@ function au_lga_create_next_lga($shp, $states) {
       }
 
       // Codes.
-      $node->field_au_lga_code[LANGUAGE_NONE][0]['value'] = $dbf_info['SLA_CODE11'];
-      $node->field_au_lga_5digit[LANGUAGE_NONE][0]['value'] = $dbf_info['SLA_5DIGIT'];
-      $node->field_au_lga_reg[LANGUAGE_NONE][0]['value'] = $dbf_info['SLA_REG11'];
+      $node->field_au_lga_code[LANGUAGE_NONE][0]['value'] = $dbf_info['LGA_CODE11'];
 
       // State.
       if (isset($states[$dbf_info['STATE_CODE']])) {
