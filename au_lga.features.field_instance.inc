@@ -169,6 +169,43 @@ function au_lga_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-au_lga-field_au_lga_state'
+  $field_instances['node-au_lga-field_au_lga_state'] = array(
+    'bundle' => 'au_lga',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_au_lga_state',
+    'label' => 'State',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'node-au_lga-field_au_lga_type'
   $field_instances['node-au_lga-field_au_lga_type'] = array(
     'bundle' => 'au_lga',
@@ -247,6 +284,7 @@ function au_lga_field_default_field_instances() {
   t('Code');
   t('Reg');
   t('Region');
+  t('State');
   t('Type');
 
   return $field_instances;
