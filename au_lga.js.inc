@@ -29,7 +29,7 @@ function au_lga_geocode_callback($y, $x) {
           $type = check_plain($types[$node->field_au_lga_type[LANGUAGE_NONE][0]['value']]);
           $item = array(
             'name' => check_plain($node->title),
-            'full_name' => $type . ' of ' . check_plain($node->title),
+            'full_name' => $type ? $type . ' of ' . check_plain($node->title) : check_plain($node->title),
             'type' => $types[$node->field_au_lga_type[LANGUAGE_NONE][0]['value']],
             'code' => check_plain($node->field_au_lga_code[LANGUAGE_NONE][0]['value']),
             '5digit' => check_plain($node->field_au_lga_5digit[LANGUAGE_NONE][0]['value']),
